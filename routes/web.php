@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComunasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get ('/Comunas', [ComunasController ::class,'index']) -> name ('comunas.index');
+Route::post ('/Comunas', [ComunasController ::class,'store']) -> name ('comunas.store');
+Route::get('/Comunas/create', [ComunasController ::class,'create']) -> name ('comunas.create');
+Route::delete ('/Comunas/{comuna}', [ComunasController ::class,'detroy']) -> name ('comunas.detroy');
